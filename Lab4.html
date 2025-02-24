@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <title>Lab 4</title>
+        <style>
+
+            .section {
+                border: 10px solid black;
+                margin: 20px;
+                padding: 20px;
+                border-radius: 10px;
+                background-color: pink;
+            }
+            body {
+                font-family: cursive;
+                padding: 50px;
+                background-color: purple;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="heading"> Ima be changed soon</h1>
+
+        <!-- Form Name Section ) -->
+        <div class="section">
+            <form name="NameForm" onsubmit="alertName()">
+                <label for="firstName">First name:</label>
+                <input type="text" placeholder="John" id="firstName" required>    
+                <button type="submit">Alert Me!</button>
+            </form>
+        </div>
+
+        <!-- Text Tester Section -->
+        <div class="section">
+            <form name="TextTesterForm">
+                <label for="textTester">Text Tester:</label>
+                <input type="text" id="textTester" required>
+                <button type="button" onclick="TextTester()">Validate Text</button>
+            </form>
+        </div>
+
+        <!-- Change Color Section -->
+        <div class="section">
+            <button type="button" onclick="changeColor()">Change Color</button>
+        </div>
+
+        <!-- Add Text Section -->
+        <div class="section">
+            <button type="button" onclick="addText()">Add Text</button>
+        </div>
+
+        <!-- Javascript Code -->
+        <script type="text/javascript">
+            var heading = h1
+            function alertName() {
+                var name = document.getElementById('firstName').value; 
+                if (name) {
+                    alert("Hi " + name + "!");
+                } else {
+                    alert("Please enter your name.");
+                }
+            }
+
+            function changeColor() {
+                var currentColor = document.body.style.backgroundColor;
+                if (currentColor === 'pink') {
+                    document.body.style.backgroundColor = 'purple'; 
+                } else {
+                    document.body.style.backgroundColor = 'pink';
+                }
+            }
+
+            function TextTester() {
+                var validation = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                
+                if (validation.test(document.TextTesterForm.textTester.value)) {
+                    document.body.style.background = 'orange';
+                    alert('This is NOT allowed, unethical of you :(');
+                    return false;
+                } else {
+                    alert('Text is valid')
+                }
+            }
+
+            function addText() {
+                var heading = document.getElementById('heading');
+                console.log(heading);
+            if (heading) {
+                heading.innerHTML += " Add Text";
+            } 
+             }
+        </script>
+
+    </body>
+</html>
